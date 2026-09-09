@@ -280,7 +280,7 @@ Se aprueban estructura, comportamiento y fórmula antes de construir la versión
 
 ### G3 — Prototipo visual de alta fidelidad
 
-Estado: en revisión. Prototipo aislado: `g3-prototipo.html`, `g3-prototipo.css` y `g3-prototipo.js`. Asset editorial provisional: `img/prototipo-hielo-editorial.png`.
+Estado: en revisión. El prototipo G3 usa ahora la entrada principal `index.html`, con `g3-prototipo.css` y `g3-prototipo.js`. Asset editorial provisional: `img/prototipo-hielo-editorial.png`.
 
 #### Goal
 
@@ -400,7 +400,7 @@ Demostrar que la página funciona y se ve correctamente antes de cualquier publi
 #### Revisión técnica
 
 ```bash
-node --check /Users/santiagopalacio/Downloads/Monuacua/monacua.info/script.js
+node --check /Users/santiagopalacio/Downloads/Monuacua/monacua.info/g3-prototipo.js
 git -C /Users/santiagopalacio/Downloads/Monuacua/monacua.info diff --check
 ```
 

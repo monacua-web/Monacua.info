@@ -1,12 +1,13 @@
 # Monacua.info · Hielos Claritas
 
-Mockup web de Hielos Claritas para presentar sus formatos de hielo, calcular cantidades aproximadas y enviar una solicitud de cotización por WhatsApp.
+Entrada oficial local de Hielos Claritas para presentar sus formatos de hielo, calcular cantidades aproximadas y enviar una solicitud de cotización por WhatsApp.
 
 ## Estructura
 
-- `monacua-mockup.html`: estructura y contenido de la página.
-- `styles.css`: estilos visuales, responsive, neumorfismo y animaciones.
-- `script.js`: menú, calculadora, selector de personas, resultados y enlaces dinámicos de WhatsApp.
+- `index.html`: entrada oficial del sitio.
+- `g3-prototipo.css`: estilos visuales, responsive, estados y animaciones cargados por la entrada oficial.
+- `g3-prototipo.js`: menú, calculadora, selector de personas, resultados y enlace dinámico de WhatsApp cargados por la entrada oficial.
+- `index_prototipo.html`: snapshot histórico de la versión anterior; no es la entrada activa.
 - `img/`: fotografías y mockups de los formatos de hielo.
 
 ## Ejecutar localmente
@@ -20,7 +21,7 @@ python3 -m http.server 4173
 Después abre:
 
 ```text
-http://127.0.0.1:4173/monacua-mockup.html
+http://127.0.0.1:4173/index.html
 ```
 
 ## Funcionalidades principales

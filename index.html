@@ -3,244 +3,345 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Hielos Claritas. Una marca de Monacua. Presentaciones de hielo para hogares, eventos, comercios y empresas." />
     <meta name="theme-color" content="#6868AC" />
-    <title>Monacua Ice | Prototipo visual</title>
+    <title>Hielos Claritas · Una marca de Monacua</title>
     <link rel="stylesheet" href="g3-prototipo.css" />
   </head>
   <body>
-    <!-- Prototipo G3. Textos, datos comerciales y assets siguen sujetos a observaciones.md. -->
     <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Monacua Ice, inicio">
-        <img class="brand-wordmark" src="img/monacua-wordmark.png" alt="Monacua" />
-        <span class="brand-ice">ICE</span>
-      </a>
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="#productos">Formatos</a>
-        <a href="#calculadora">Calcular</a>
-        <a href="#confianza">Confianza</a>
-        <a href="#preguntas">Preguntas</a>
-      </nav>
-      <a class="button button-small button-dark" href="#calculadora">Cotizar</a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
-        <span></span><span></span>
-      </button>
-      <nav id="mobile-menu" class="mobile-menu" aria-label="Navegación móvil">
-        <a href="#productos">Formatos</a>
-        <a href="#calculadora">Calcular</a>
-        <a href="#confianza">Confianza</a>
-        <a href="#preguntas">Preguntas</a>
-        <a class="button button-dark" href="#calculadora">Cotizar pedido</a>
-      </nav>
+      <div class="header-inner">
+        <a class="brand" href="#inicio" aria-label="Monacua Ice, inicio">
+          <img class="brand-wordmark" src="img/monacua-wordmark.png" alt="Monacua" />
+          <span class="brand-ice">ICE</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegación principal">
+          <a href="#productos">Presentaciones</a>
+          <a href="#calculadora">Calcula tu pedido</a>
+          <a href="#empresas">Para empresas</a>
+          <a href="#preguntas">Preguntas frecuentes</a>
+        </nav>
+
+        <a class="button button-small button-dark whatsapp-link" data-whatsapp-quote data-whatsapp-context="general" href="https://wa.me/573102682677?text=Hola%2C%20quiero%20cotizar%20hielo" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+        <nav id="mobile-menu" class="mobile-menu" aria-label="Navegación móvil">
+          <a href="#productos">Presentaciones</a>
+          <a href="#calculadora">Calcula tu pedido</a>
+          <a href="#empresas">Para empresas</a>
+          <a href="#preguntas">Preguntas frecuentes</a>
+          <a class="button button-dark whatsapp-link" data-whatsapp-quote data-whatsapp-context="general" href="https://wa.me/573102682677?text=Hola%2C%20quiero%20cotizar%20hielo" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+        </nav>
+      </div>
     </header>
 
     <main>
       <section id="inicio" class="hero section-shell">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Monacua Ice / marca principal</p>
-          <!-- Texto provisional hasta recibir decisión del cliente. -->
-          <h1>El hielo que acompaña <em>cada momento.</em></h1>
-          <p class="hero-lede">Una forma más clara de elegir, calcular y pedir hielo para tu operación.</p>
+          <h1>Hielo confiable para cada momento <em>y cada operación.</em></h1>
+          <p class="hero-lede">Encuentra la presentación adecuada, calcula cuánto necesitas y solicita tu pedido de manera rápida y sencilla.</p>
+          <p class="hero-audience">Atendemos hogares, eventos, restaurantes, hoteles, bares, cafeterías, comercios y empresas.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#calculadora">Calcular pedido <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#productos">Ver formatos <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="#calculadora">Calcular cuánto necesito <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#productos">Ver presentaciones <span aria-hidden="true">↓</span></a>
           </div>
-          <p class="client-note">Proyecto de referencia para Hielos Claritas, cliente de Monacua.</p>
         </div>
         <figure class="hero-media reveal reveal-late">
-          <img class="cutout-image" src="img/bolsas-llenas/monacua-1kg-cutout.png" alt="Bolsa Monacua Ice de 1 kg llena de hielo, sin fondo" />
-          <figcaption>Una identidad fría, precisa y fácil de reconocer.</figcaption>
+          <img class="hero-product-image" src="img/bolsas-llenas/hielos-claritas-4kg-new.png" alt="Bolsa de hielo Hielos Claritas de 4 kg, llena de hielo" fetchpriority="high" />
+          <figcaption>El hielo que necesitas, en el formato que mejor funciona para ti.</figcaption>
         </figure>
       </section>
 
-      <section class="proof-band section-shell" aria-label="Principios de la experiencia">
-        <div><strong>Elige</strong><span>el formato que corresponde a tu necesidad.</span></div>
-        <div><strong>Calcula</strong><span>una cantidad inicial en pocos pasos.</span></div>
-        <div><strong>Cotiza</strong><span>con la configuración lista para enviar.</span></div>
+      <section class="proof-band section-shell" aria-label="Cómo te ayudamos">
+        <div><strong>Abastecimiento</strong><span>Formatos para pedidos pequeños, eventos y operaciones recurrentes.</span></div>
+        <div><strong>Confianza</strong><span>Información clara para elegir antes de solicitar tu pedido.</span></div>
+        <div><strong>Facilidad</strong><span>Calcula una cantidad inicial en pocos pasos.</span></div>
+        <div><strong>Cumplimiento</strong><span>Coordina disponibilidad, transporte y entrega directamente.</span></div>
       </section>
 
       <section id="productos" class="products-section section-shell section-space">
         <div class="section-intro reveal">
-          <h2>Una familia visual. Distintas necesidades.</h2>
-          <p>El catálogo definitivo y sus pesos se validarán con el cliente antes de publicar.</p>
+          <p class="eyebrow">Presentaciones</p>
+          <h2>Una presentación para cada necesidad.</h2>
+          <p>Desde pedidos pequeños hasta abastecimiento comercial, encuentra el formato que mejor se adapta a tu consumo.</p>
         </div>
+
         <div class="product-lineup">
           <article class="product-item product-item-1kg reveal">
             <figure class="product-figure">
-              <img src="img/bolsas-llenas/monacua-1kg-cutout.png" alt="Bolsa de hielo Monacua Ice de 1 kg, llena de cubos de hielo, sin fondo" loading="lazy" decoding="async" />
+              <img src="img/bolsas-llenas/hielos-claritas-1kg.png" alt="Bolsa de hielo Hielos Claritas de 1 kg llena de cubos de hielo" loading="lazy" decoding="async" />
             </figure>
             <div class="product-copy">
-              <h3>1 kg</h3>
-              <p class="product-label">Consumo rápido</p>
-              <p>Empaque transparente con impresión violeta y el origen de la marca al frente.</p>
-              <div class="product-meta"><span>Monacua Ice</span><span>Visual provisional</span></div>
+              <p class="product-label">Bolsa de 1 kg</p>
+              <h3>Práctica para momentos cotidianos.</h3>
+              <p>Una presentación cómoda para consumo personal, reuniones pequeñas o para complementar el hielo que ya tienes.</p>
+              <p class="product-ideal"><strong>Ideal para:</strong> Hogares, paseos y reuniones pequeñas.</p>
+              <p class="product-price"><span>Precio de referencia</span><strong>$2.500</strong></p>
             </div>
           </article>
+
           <article class="product-item product-item-2-5kg reveal reveal-late">
-            <figure class="product-figure"><img src="img/bolsas-llenas/monacua-2-5kg-cutout-clean.png" alt="Bolsa de hielo Monacua Ice de 2,5 kg, llena de cubos de hielo, sin fondo" loading="lazy" decoding="async" /></figure>
-            <div class="product-copy"><h3>2,5 kg</h3><p class="product-label">Presentación intermedia</p><p>La misma estructura visual en un formato de mayor volumen.</p><div class="product-meta"><span>Monacua Ice</span><span>Visual provisional</span></div></div>
+            <figure class="product-figure">
+              <img src="img/bolsas-llenas/hielos-claritas-2-5kg.png" alt="Bolsa de hielo Hielos Claritas de 2,5 kg llena de cubos de hielo" loading="lazy" decoding="async" />
+            </figure>
+            <div class="product-copy">
+              <p class="product-label">Bolsa de 2,5 kg</p>
+              <h3>El equilibrio entre comodidad y cantidad.</h3>
+              <p>Fácil de almacenar, manipular y distribuir. Ideal cuando necesitas una cantidad moderada sin ocupar demasiado espacio.</p>
+              <p class="product-ideal"><strong>Ideal para:</strong> Hogares, cafeterías, reuniones y pequeños negocios.</p>
+              <p class="product-price"><span>Precio de referencia</span><strong>$5.000</strong></p>
+            </div>
           </article>
+
           <article class="product-item product-item-4kg reveal reveal-late">
-            <figure class="product-figure"><img src="img/bolsas-llenas/monacua-4kg-cutout-clean-horizontal.png" alt="Bolsa de hielo Monacua Ice de 4 kg, llena de cubos de hielo, sin fondo" loading="lazy" decoding="async" /></figure>
-            <div class="product-copy"><h3>4 kg</h3><p class="product-label">Mayor volumen</p><p>Una presentación amplia con el mismo sistema visual de Monacua.</p><div class="product-meta"><span>Monacua Ice</span><span>Visual provisional</span></div></div>
+            <figure class="product-figure">
+              <img src="img/bolsas-llenas/hielos-claritas-4kg-new.png" alt="Bolsa de hielo Hielos Claritas de 4 kg llena de hielo" loading="lazy" decoding="async" />
+            </figure>
+            <div class="product-copy">
+              <p class="product-label">Bolsa de 4 kg</p>
+              <h3>Más hielo para compartir.</h3>
+              <p>Una presentación de mayor capacidad para celebraciones, establecimientos y actividades que requieren más disponibilidad.</p>
+              <p class="product-ideal"><strong>Ideal para:</strong> Fiestas, restaurantes, bares, cafeterías y comercios.</p>
+              <p class="product-price"><span>Precio de referencia</span><strong>$7.000</strong></p>
+            </div>
           </article>
         </div>
-        <div class="product-note reveal">
-          <div><h3>Claro desde el primer vistazo.</h3><p>El símbolo, el lockup y el peso organizan la lectura del empaque sin ruido.</p></div>
-          <a class="text-link" href="#calculadora">Encontrar mi formato <span aria-hidden="true">↗</span></a>
+
+        <div class="volume-showcase reveal">
+          <div class="volume-copy">
+            <p class="eyebrow">Formatos de mayor volumen</p>
+            <h3>Soluciones para eventos y empresas.</h3>
+            <p>También contamos con presentaciones de mayor capacidad para operaciones comerciales, conservación de productos y abastecimiento frecuente.</p>
+            <p class="volume-ask"><strong>Consulta por:</strong> Bultos de hielo, bloques de hielo, pedidos recurrentes y abastecimiento empresarial.</p>
+            <a class="text-link" href="#empresas">Consultar disponibilidad <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure class="volume-figure">
+            <img src="img/bolsas-llenas/hielos-claritas-30kg-cutout.png" alt="Bulto de hielo Hielos Claritas de 30 kg" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+
+        <div class="catalog-table-wrap reveal">
+          <div class="catalog-heading">
+            <div><p class="eyebrow">Catálogo</p><h3>Formatos y valores de referencia.</h3></div>
+            <p>Confirma disponibilidad, transporte y valor final según la ubicación y las condiciones del pedido.</p>
+          </div>
+          <div class="catalog-table-scroll">
+            <table class="catalog-table">
+              <caption class="visually-hidden">Formatos de hielo y precios de referencia</caption>
+              <thead><tr><th scope="col">Formato</th><th scope="col">Presentación</th><th scope="col">Peso</th><th scope="col">Valor de referencia</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Paca</th><td>10 bolsas de 1 kg</td><td>10 kg</td><td>$22.000</td></tr>
+                <tr><th scope="row">Paca</th><td>5 bolsas de 2,5 kg</td><td>12,5 kg</td><td>$22.000</td></tr>
+                <tr><th scope="row">Bulto</th><td>Presentación individual</td><td>10 kg</td><td>$18.000</td></tr>
+                <tr><th scope="row">Bulto</th><td>Presentación individual</td><td>30 kg</td><td>$45.000</td></tr>
+                <tr><th scope="row">Bloque cuarto</th><td>Presentación individual</td><td>15 kg</td><td>$15.000</td></tr>
+                <tr><th scope="row">Bloque medio</th><td>Presentación individual</td><td>30 kg</td><td>$28.000</td></tr>
+                <tr><th scope="row">Bloque completo</th><td>Presentación individual</td><td>60 kg</td><td>$50.000</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <section id="calculadora" class="calculator-section section-shell section-space">
+      <section id="calculadora" class="calculator-section section-space">
+        <div class="section-shell">
+          <div class="section-intro reveal">
+            <p class="eyebrow">Calcula tu pedido</p>
+            <h2>Calcula cuánto hielo puedes necesitar.</h2>
+            <p>Cuéntanos para qué lo necesitas, cuántas personas asistirán, cuánto durará la actividad y qué tipo de bebidas vas a manejar.</p>
+          </div>
+
+          <div class="calculator-layout">
+            <form id="quote-form" class="calc-form reveal" novalidate>
+              <fieldset class="calc-group">
+                <legend>¿Para qué necesitas hielo?</legend>
+                <div class="choice-group" data-choice-group="occasion" role="group" aria-label="Tipo de pedido">
+                  <button class="choice-chip is-selected" type="button" data-choice="occasion" data-setting="home" data-label="Hogares y reuniones" aria-pressed="true">Hogares y reuniones</button>
+                  <button class="choice-chip" type="button" data-choice="occasion" data-setting="event" data-label="Eventos" aria-pressed="false">Eventos</button>
+                  <button class="choice-chip" type="button" data-choice="occasion" data-setting="business" data-label="Empresas" aria-pressed="false">Empresas</button>
+                </div>
+                <input id="setting" name="setting" type="hidden" value="home" />
+              </fieldset>
+
+              <div class="field field-people">
+                <div class="field-heading">
+                  <label for="people">¿Cuántas personas?</label>
+                  <div class="stepper" aria-label="Cantidad de personas">
+                    <button class="stepper-button" type="button" data-people-step="-1" aria-label="Restar una persona">−</button>
+                    <input id="people" name="people" type="number" min="1" max="10000" value="20" inputmode="numeric" required aria-describedby="people-hint people-error" />
+                    <button class="stepper-button" type="button" data-people-step="1" aria-label="Sumar una persona">+</button>
+                  </div>
+                </div>
+                <input id="people-range" type="range" min="1" max="500" value="20" step="1" aria-label="Cantidad aproximada de personas" aria-describedby="people-hint" />
+                <p id="people-hint" class="field-hint">Puedes escribir una cantidad exacta entre 1 y 10.000 personas.</p>
+                <p id="people-error" class="field-error" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="duration">¿Cuánto durará la actividad?</label>
+                <select id="duration" name="duration">
+                  <option value="2">Hasta 2 horas</option>
+                  <option value="4" selected>3 a 4 horas</option>
+                  <option value="6">5 a 6 horas</option>
+                  <option value="8">Más de 6 horas</option>
+                </select>
+              </div>
+
+              <fieldset class="calc-group">
+                <legend>¿Qué bebidas vas a manejar?</legend>
+                <div class="choice-group" data-choice-group="beverages" role="group" aria-label="Tipo de bebidas">
+                  <button class="choice-chip" type="button" data-choice="beverages" data-value="sodas" data-label="Gaseosas" aria-pressed="false">Gaseosas</button>
+                  <button class="choice-chip" type="button" data-choice="beverages" data-value="beer" data-label="Cervezas" aria-pressed="false">Cervezas</button>
+                  <button class="choice-chip" type="button" data-choice="beverages" data-value="cocktails" data-label="Cócteles" aria-pressed="false">Cócteles</button>
+                  <button class="choice-chip is-selected" type="button" data-choice="beverages" data-value="mixed" data-label="Mixto" aria-pressed="true">Mixto</button>
+                </div>
+                <input id="beverages" name="beverages" type="hidden" value="mixed" />
+              </fieldset>
+
+              <fieldset class="calc-group">
+                <legend>¿Dónde será?</legend>
+                <div class="choice-group" data-choice-group="location" role="group" aria-label="Lugar del pedido">
+                  <button class="choice-chip is-selected" type="button" data-choice="location" data-value="interior" data-label="Interior" aria-pressed="true">Interior</button>
+                  <button class="choice-chip" type="button" data-choice="location" data-value="exterior" data-label="Exterior" aria-pressed="false">Exterior</button>
+                  <button class="choice-chip" type="button" data-choice="location" data-value="sun" data-label="Al sol" aria-pressed="false">Al sol</button>
+                </div>
+                <input id="location" name="location" type="hidden" value="interior" />
+              </fieldset>
+
+              <fieldset class="calc-group binary-group">
+                <legend>¿Necesitas enfriar botellas?</legend>
+                <div class="choice-group" data-choice-group="cooling" role="group" aria-label="Enfriar botellas">
+                  <button class="choice-chip" type="button" data-choice="cooling" data-value="yes" data-label="Sí" aria-pressed="false">Sí</button>
+                  <button class="choice-chip is-selected" type="button" data-choice="cooling" data-value="no" data-label="No" aria-pressed="true">No</button>
+                </div>
+                <input id="cooling" name="cooling" type="hidden" value="no" />
+              </fieldset>
+
+              <div class="field format-field">
+                <label for="format">Presentación</label>
+                <select id="format" name="format">
+                  <option value="recommend" selected>Recomiéndame una</option>
+                  <option value="bag1">Bolsa de 1 kg</option>
+                  <option value="bag25">Bolsa de 2,5 kg</option>
+                  <option value="bag4">Bolsa de 4 kg</option>
+                  <option value="paca1">Paca de 10 bolsas de 1 kg</option>
+                  <option value="paca25">Paca de 5 bolsas de 2,5 kg</option>
+                  <option value="bulk10">Bulto de 10 kg</option>
+                  <option value="bulk30">Bulto de 30 kg</option>
+                  <option value="block15">Bloque cuarto de 15 kg</option>
+                  <option value="block30">Bloque medio de 30 kg</option>
+                  <option value="block60">Bloque completo de 60 kg</option>
+                </select>
+                <p class="field-hint">Puedes elegir un formato específico o dejar que te recomendemos uno.</p>
+              </div>
+
+              <button class="button button-primary button-wide calc-submit" type="submit">Actualizar estimación</button>
+              <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+
+            <aside class="calc-result-stack">
+              <div class="calc-result" aria-live="polite" aria-atomic="true">
+                <section class="approx-card">
+                  <div class="approx-heading"><span>Tu pedido recomendado</span><span class="result-mark" aria-hidden="true">HIELO</span></div>
+                  <div class="approx-number"><span id="result-kg">15</span><small>kg aprox.</small></div>
+                  <p id="result-summary" class="result-summary">Una referencia inicial para organizar tu pedido.</p>
+                  <ul class="breakdown-list" aria-label="Desglose de la estimación">
+                    <li><span>Servir bebidas</span><output id="breakdown-service">8 kg</output></li>
+                    <li><span>Enfriar botellas</span><output id="breakdown-cooling">0 kg</output></li>
+                    <li><span>Clima</span><output id="breakdown-climate">0 kg</output></li>
+                    <li><span>Margen de seguridad</span><output id="breakdown-safety">1 kg</output></li>
+                  </ul>
+                </section>
+
+                <section class="package-card">
+                  <div class="package-ribbon">Listo para cotizar</div>
+                  <div class="package-heading"><span>Presentación sugerida</span><strong id="package-title">Bloque cuarto de 15 kg</strong></div>
+                  <div id="package-lines" class="package-lines"></div>
+                  <p id="package-coverage" class="package-coverage"></p>
+                  <div class="package-total"><span>Precio de referencia</span><strong id="package-price">$15.000</strong></div>
+                  <p class="package-delivery">Cobertura, transporte, disponibilidad y valor final se confirman según la ubicación y el pedido.</p>
+                  <a id="quote-link" class="package-whatsapp whatsapp-link" data-whatsapp-quote href="https://wa.me/573102682677?text=Hola%2C%20quiero%20cotizar%20hielo" target="_blank" rel="noopener">Solicitar cotización por WhatsApp</a>
+                  <a class="package-secondary" href="#quote-form">Ajustar cálculo</a>
+                </section>
+              </div>
+              <p class="calculation-note">Esta calculadora ofrece una cantidad aproximada. El consumo puede variar según la temperatura, la duración, el almacenamiento, el tipo de bebidas y la forma de utilización.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="empresas" class="business-section section-shell section-space">
+        <div class="business-copy reveal">
+          <p class="eyebrow">Para empresas</p>
+          <h2>Hielo para que tu operación no se detenga.</h2>
+          <p>Atendemos negocios que necesitan abastecimiento programado o recurrente. Te ayudamos a definir las presentaciones, cantidades y frecuencia de entrega más convenientes para tu operación.</p>
+          <a class="button button-primary" data-whatsapp-quote data-whatsapp-context="business" href="https://wa.me/573102682677?text=Hola%2C%20quiero%20solicitar%20atenci%C3%B3n%20empresarial" target="_blank" rel="noopener">Solicitar atención empresarial</a>
+        </div>
+        <ul class="business-list reveal reveal-late">
+          <li>Restaurantes y cafeterías</li>
+          <li>Hoteles y alojamientos</li>
+          <li>Bares y discotecas</li>
+          <li>Supermercados y distribuidores</li>
+          <li>Eventos y servicios de catering</li>
+          <li>Pescaderías y conservación de alimentos</li>
+          <li>Empresas e instituciones</li>
+        </ul>
+      </section>
+
+      <section class="operation-section section-shell section-space">
         <div class="section-intro reveal">
-          <p class="eyebrow">Calculadora de pedido</p>
-          <h2>Cuéntanos qué necesitas.</h2>
-          <p>Obtén una primera referencia y envíala a Monacua para confirmar la cotización.</p>
+          <p class="eyebrow">Una compra más clara</p>
+          <h2>Más fácil de calcular. Más sencillo de pedir.</h2>
         </div>
-        <div class="calculator-layout">
-          <form id="quote-form" class="calc-form reveal" novalidate>
-            <fieldset class="calc-group">
-              <legend>¿Para qué necesitas hielo?</legend>
-              <div class="choice-group" data-choice-group="occasion" role="group" aria-label="Ocasión o tipo de uso">
-                <button class="choice-chip is-selected" type="button" data-choice="occasion" data-setting="event" data-label="Evento" aria-pressed="true"><span aria-hidden="true">🎉</span> Evento</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="event" data-label="Cumpleaños" aria-pressed="false"><span aria-hidden="true">🎂</span> Cumpleaños</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="event" data-label="Matrimonio" aria-pressed="false"><span aria-hidden="true">💍</span> Matrimonio</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="event" data-label="Hotel" aria-pressed="false"><span aria-hidden="true">🏨</span> Hotel</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="business" data-label="Restaurante" aria-pressed="false"><span aria-hidden="true">🍽️</span> Restaurante</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="business" data-label="Bar" aria-pressed="false"><span aria-hidden="true">🍸</span> Bar</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="business" data-label="Discoteca" aria-pressed="false"><span aria-hidden="true">🪩</span> Discoteca</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="business" data-label="Empresa" aria-pressed="false"><span aria-hidden="true">🏢</span> Empresa</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="business" data-label="Cafetería" aria-pressed="false"><span aria-hidden="true">☕</span> Cafetería</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="event" data-label="Camping" aria-pressed="false"><span aria-hidden="true">⛺</span> Camping</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="event" data-label="Pesca" aria-pressed="false"><span aria-hidden="true">🐟</span> Pesca</button>
-                <button class="choice-chip" type="button" data-choice="occasion" data-setting="home" data-label="Otro" aria-pressed="false"><span aria-hidden="true">✦</span> Otro</button>
-              </div>
-              <select id="setting" name="setting" class="visually-hidden" tabindex="-1" aria-hidden="true"><option value="event" selected>Evento o celebración</option><option value="business">Restaurante o bar</option><option value="home">Hogar o reunión</option></select>
-            </fieldset>
-
-            <div class="field field-range field-people">
-              <div class="field-heading"><label for="people-range">¿Cuántas personas?</label><div class="field-output"><input id="people" name="people" type="number" min="1" max="10000" value="50" inputmode="numeric" required aria-label="Cantidad exacta de personas" /><span aria-hidden="true">pers.</span></div></div>
-              <input id="people-range" type="range" min="1" max="500" value="50" step="1" aria-label="Cantidad aproximada de personas" aria-describedby="people-hint" />
-              <p id="people-hint" class="visually-hidden">Puedes escribir una cantidad exacta entre 1 y 10.000 personas en el valor de la derecha.</p>
-              <p id="people-error" class="field-error" role="alert"></p>
-            </div>
-
-            <div class="field field-range">
-              <div class="field-heading"><label for="duration-range">¿Cuántas horas?</label><output id="duration-output" for="duration-range">5 h</output></div>
-              <input id="duration-range" type="range" min="2" max="8" value="5" step="1" aria-label="Duración en horas" />
-              <select id="duration" name="duration" class="visually-hidden" tabindex="-1" aria-hidden="true"><option value="2">Hasta 2 horas</option><option value="4">3 a 4 horas</option><option value="6" selected>5 a 6 horas</option><option value="8">Más de 6 horas</option></select>
-            </div>
-
-            <fieldset class="calc-group">
-              <legend>¿Qué bebidas habrá?</legend>
-              <div class="choice-group" data-choice-group="beverages" role="group" aria-label="Tipo de bebidas">
-                <button class="choice-chip" type="button" data-choice="beverages" data-value="sodas" data-label="Gaseosas" aria-pressed="false"><span aria-hidden="true">🥤</span> Gaseosas</button>
-                <button class="choice-chip" type="button" data-choice="beverages" data-value="beer" data-label="Cervezas" aria-pressed="false"><span aria-hidden="true">🍺</span> Cervezas</button>
-                <button class="choice-chip" type="button" data-choice="beverages" data-value="liquor" data-label="Licor" aria-pressed="false"><span aria-hidden="true">🥃</span> Licor</button>
-                <button class="choice-chip" type="button" data-choice="beverages" data-value="cocktails" data-label="Cócteles" aria-pressed="false"><span aria-hidden="true">🍸</span> Cócteles</button>
-                <button class="choice-chip is-selected" type="button" data-choice="beverages" data-value="mixed" data-label="Mixto" aria-pressed="true"><span aria-hidden="true">✦</span> Mixto</button>
-              </div>
-              <input id="beverages" name="beverages" type="hidden" value="mixed" />
-            </fieldset>
-
-            <fieldset class="calc-group">
-              <legend>¿Dónde será?</legend>
-              <div class="choice-group" data-choice-group="location" role="group" aria-label="Lugar del evento">
-                <button class="choice-chip" type="button" data-choice="location" data-value="interior" data-label="Interior" aria-pressed="false"><span aria-hidden="true">🏠</span> Interior</button>
-                <button class="choice-chip is-selected" type="button" data-choice="location" data-value="exterior" data-label="Exterior" aria-pressed="true"><span aria-hidden="true">🌤️</span> Exterior</button>
-                <button class="choice-chip" type="button" data-choice="location" data-value="sun" data-label="Al sol" aria-pressed="false"><span aria-hidden="true">☀️</span> Al sol</button>
-              </div>
-              <input id="location" name="location" type="hidden" value="exterior" />
-            </fieldset>
-
-            <fieldset class="calc-group binary-group">
-              <legend>¿Enfriar botellas (neveras)?</legend>
-              <div class="choice-group" data-choice-group="cooling" role="group" aria-label="Enfriar botellas en neveras">
-                <button class="choice-chip is-selected" type="button" data-choice="cooling" data-value="yes" data-target="cooling" data-label="Sí" aria-pressed="true">Sí</button>
-                <button class="choice-chip" type="button" data-choice="cooling" data-value="no" data-target="cooling" data-label="No" aria-pressed="false">No</button>
-              </div>
-              <input id="cooling" name="cooling" type="checkbox" class="visually-hidden" checked tabindex="-1" aria-hidden="true" />
-            </fieldset>
-
-            <fieldset class="calc-group binary-group">
-              <legend>¿Hielo para los vasos?</legend>
-              <div class="choice-group" data-choice-group="glasses" role="group" aria-label="Hielo para los vasos">
-                <button class="choice-chip is-selected" type="button" data-choice="glasses" data-value="yes" data-target="glasses" data-label="Sí" aria-pressed="true">Sí</button>
-                <button class="choice-chip" type="button" data-choice="glasses" data-value="no" data-target="glasses" data-label="No" aria-pressed="false">No</button>
-              </div>
-              <input id="glasses" name="glasses" type="checkbox" class="visually-hidden" checked tabindex="-1" aria-hidden="true" />
-            </fieldset>
-
-            <details class="optional-options">
-              <summary><span>Personalizar presentación</span><span aria-hidden="true">+</span></summary>
-              <div class="field"><label for="format">Presentación</label><select id="format" name="format"><option value="recommend" selected>Recomiéndame una</option><option value="bag">Bolsas de 2,5 kg</option><option value="bulk">Bultos de 30 kg</option><option value="block">Bloques de 60 kg</option></select></div>
-            </details>
-            <button class="calc-submit visually-hidden" type="submit">Actualizar estimación</button>
-            <p id="form-status" class="form-status visually-hidden" role="status" aria-live="polite"></p>
-          </form>
-
-          <aside class="calc-result-stack" aria-live="polite" aria-atomic="true">
-            <section class="approx-card">
-              <div class="approx-heading"><span>Necesitas aprox.</span><span class="result-mark" aria-hidden="true">ICE</span></div>
-              <div class="approx-number"><span id="result-kg">65</span><small>kg</small></div>
-              <ul class="breakdown-list" aria-label="Desglose de la estimación">
-                <li><span>Servir bebidas</span><span class="breakdown-track" aria-hidden="true"><span id="breakdown-service-bar"></span></span><output id="breakdown-service">27</output></li>
-                <li><span>Enfriar botellas</span><span class="breakdown-track" aria-hidden="true"><span id="breakdown-cooling-bar"></span></span><output id="breakdown-cooling">20</output></li>
-                <li><span>Clima (+15%)</span><span class="breakdown-track" aria-hidden="true"><span id="breakdown-climate-bar"></span></span><output id="breakdown-climate">7</output></li>
-                <li><span>Margen de seguridad</span><span class="breakdown-track" aria-hidden="true"><span id="breakdown-safety-bar"></span></span><output id="breakdown-safety">10</output></li>
-              </ul>
-            </section>
-
-            <section class="package-card">
-              <div class="package-ribbon">Tu paquete más económico</div>
-              <div class="package-options" data-choice-group="format" role="group" aria-label="Presentación del paquete">
-                <button class="package-option is-selected" type="button" data-format-choice="recommend" aria-pressed="true">✦ Automático</button>
-                <button class="package-option" type="button" data-format-choice="bag" aria-pressed="false">Bolsas</button>
-                <button class="package-option" type="button" data-format-choice="bulk" aria-pressed="false">Bultos</button>
-                <button class="package-option" type="button" data-format-choice="block" aria-pressed="false">Bloques</button>
-              </div>
-              <div id="package-lines" class="package-lines"></div>
-              <p id="package-coverage" class="package-coverage"></p>
-              <div class="package-total"><span id="package-price">$65.000</span></div>
-              <p id="package-savings" class="package-savings"></p>
-              <p class="package-delivery">Entrega y envío se coordinan por WhatsApp según tu zona.</p>
-              <a id="quote-link" class="package-whatsapp" href="#contacto">Pedir por WhatsApp 💬</a>
-              <button id="cart-button" class="package-secondary" type="button">Agregar al carrito 🧊</button>
-              <button id="copy-link" class="copy-link" type="button">🔗 Copiar enlace de esta configuración</button>
-            </section>
-            <p class="calculation-note">Basado en estándares internacionales de catering. El consumo real varía según almacenamiento y temperatura.</p>
-            <p id="form-status" class="form-status visually-hidden" role="status" aria-live="polite"></p>
-          </aside>
+        <div class="operation-grid">
+          <article class="operation-item reveal"><span>Abastecimiento</span><h3>Presentaciones para distintas necesidades.</h3><p>Elige entre formatos para consumo personal, eventos, establecimientos y operaciones de mayor volumen.</p></article>
+          <article class="operation-item reveal"><span>Facilidad</span><h3>Orientación antes de comprar.</h3><p>La calculadora te brinda un punto de partida para organizar mejor tu pedido.</p></article>
+          <article class="operation-item reveal"><span>Cumplimiento</span><h3>Coordina los detalles con claridad.</h3><p>Antes de despachar, confirma con el equipo la cantidad, disponibilidad, transporte y condiciones del pedido.</p></article>
+          <article class="operation-item reveal"><span>Atención directa</span><h3>Tu configuración viaja contigo.</h3><p>Envía los datos por WhatsApp sin tener que explicar nuevamente todo lo que necesitas.</p></article>
         </div>
-      </section>
-
-      <section id="confianza" class="confidence-section section-shell section-space">
-        <div class="confidence-copy reveal"><p class="eyebrow">Una experiencia más clara</p><h2>La marca se entiende antes de pedir.</h2><p>La navegación, el empaque y la calculadora siguen el mismo lenguaje visual: directo, frío y preciso.</p></div>
-        <div class="confidence-list">
-          <article class="confidence-item reveal"><span>01</span><div><h3>Identidad reconocible</h3><p>Violeta, transparencia y geometría como señales consistentes de Monacua.</p></div></article>
-          <article class="confidence-item reveal"><span>02</span><div><h3>Datos que orientan</h3><p>El usuario entiende qué está calculando y qué debe confirmar antes de pedir.</p></div></article>
-          <article class="confidence-item reveal"><span>03</span><div><h3>Contacto sin fricción</h3><p>La configuración pasa al canal de cotización sin repetir el formulario.</p></div></article>
+        <div class="coverage-note reveal">
+          <div><strong>Entregas y transporte</strong><p>Consulta la cobertura disponible para tu municipio, el horario y el valor del transporte antes de confirmar.</p></div>
+          <div><strong>Conservación</strong><p>Mantén el hielo congelado, protegido del sol y de fuentes de calor. El transporte se coordina según el pedido.</p></div>
         </div>
       </section>
 
       <section id="preguntas" class="faq-section section-shell section-space">
         <div class="section-intro reveal"><p class="eyebrow">Preguntas frecuentes</p><h2>Lo esencial antes de pedir.</h2></div>
         <div class="faq-list reveal">
-          <details><summary><span>¿Qué cantidad de hielo necesito?</span><span aria-hidden="true">+</span></summary><p>La calculadora entrega una primera estimación. El cliente debe confirmar la fórmula final según el tipo de uso y el producto.</p></details>
-          <details><summary><span>¿Qué presentación me conviene?</span><span aria-hidden="true">+</span></summary><p>La recomendación dependerá del catálogo confirmado y de si el hielo se usa para servir, enfriar o conservar.</p></details>
-          <details><summary><span>¿La estimación es una cotización?</span><span aria-hidden="true">+</span></summary><p>No. Es una referencia inicial. La disponibilidad y las condiciones se confirman por contacto.</p></details>
+          <details><summary><span>¿Cuánto hielo necesito?</span><span aria-hidden="true">+</span></summary><p>Depende del número de personas, la duración de la actividad, el tipo de bebidas, la temperatura y si lo utilizarás para servir o para enfriar. Usa la calculadora para obtener una primera estimación.</p></details>
+          <details><summary><span>¿Qué presentación me conviene?</span><span aria-hidden="true">+</span></summary><p>Las bolsas pequeñas son prácticas para consumo inmediato y reuniones. Los formatos de mayor volumen pueden ser más convenientes para eventos, negocios, conservación y pedidos recurrentes.</p></details>
+          <details><summary><span>¿La cantidad calculada es definitiva?</span><span aria-hidden="true">+</span></summary><p>No. Es una recomendación inicial. El equipo confirmará contigo la cantidad, disponibilidad, presentación y condiciones de entrega antes de cerrar el pedido.</p></details>
+          <details><summary><span>¿Realizan entregas?</span><span aria-hidden="true">+</span></summary><p>Coordinamos la entrega según tu ubicación y el tamaño del pedido. La cobertura, el horario y el valor del transporte se confirman directamente.</p></details>
+          <details><summary><span>¿Atienden empresas?</span><span aria-hidden="true">+</span></summary><p>Sí. Atendemos restaurantes, hoteles, bares, cafeterías, comercios, eventos y otros negocios que necesitan abastecimiento frecuente.</p></details>
+          <details><summary><span>¿Puedo programar pedidos recurrentes?</span><span aria-hidden="true">+</span></summary><p>Sí. Podemos revisar contigo el consumo estimado, la frecuencia y las presentaciones adecuadas para tu establecimiento.</p></details>
+          <details><summary><span>¿Con cuánto tiempo debo pedir?</span><span aria-hidden="true">+</span></summary><p>Recomendamos solicitarlo con anticipación, especialmente para eventos o pedidos de mayor volumen. La disponibilidad se confirma directamente por WhatsApp.</p></details>
         </div>
       </section>
 
       <section id="contacto" class="final-cta section-shell reveal">
-        <div><p class="eyebrow">Siguiente paso</p><h2>Hablemos de tu pedido.</h2><p>Elige un formato, calcula una cantidad inicial y envía la configuración para recibir confirmación.</p></div>
-        <a class="button button-light" href="#calculadora">Volver a calcular <span aria-hidden="true">↗</span></a>
+        <div><p class="eyebrow">Siguiente paso</p><h2>Que el hielo nunca sea lo que te falte.</h2><p>Calcula tu pedido o habla directamente con nuestro equipo para confirmar la presentación, disponibilidad y entrega.</p></div>
+        <div class="final-actions">
+          <a class="button button-light" href="#calculadora">Calcular mi pedido <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline-light whatsapp-link" data-whatsapp-quote data-whatsapp-context="general" href="https://wa.me/573102682677?text=Hola%2C%20quiero%20cotizar%20hielo" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer section-shell">
-      <div><a class="footer-brand" href="#inicio" aria-label="Monacua Ice, inicio"><img src="img/monacua-wordmark.png" alt="Monacua" /><span>ICE</span></a><p>Prototipo visual G3 para revisión. Assets y datos pendientes según `observaciones.md`.</p></div>
-      <div class="footer-links"><a href="#productos">Formatos</a><a href="#calculadora">Calcular</a><a href="#inicio">Volver arriba</a></div>
+      <div>
+        <a class="footer-brand" href="#inicio" aria-label="Hielos Claritas · Una marca de Monacua, inicio"><strong>Hielos Claritas</strong><span>· Una marca de Monacua</span></a>
+        <p>Soluciones de hielo para hogares, eventos, comercios y empresas.</p>
+      </div>
+      <nav class="footer-links" aria-label="Enlaces del pie de página">
+        <a href="#productos">Presentaciones</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#empresas">Atención empresarial</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+        <a class="whatsapp-link" data-whatsapp-quote data-whatsapp-context="general" href="https://wa.me/573102682677?text=Hola%2C%20quiero%20cotizar%20hielo" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
     </footer>
     <script src="g3-prototipo.js" defer></script>
   </body>

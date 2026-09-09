@@ -1,4 +1,12 @@
 (() => {
+  "use strict";
+
+  document.body.classList.add("motion-ready");
+
+  const WHATSAPP_PHONE = "573102682677";
+  const PEOPLE_MIN = 1;
+  const PEOPLE_MAX = 10000;
+
   const menuButton = document.querySelector(".menu-button");
   const mobileMenu = document.querySelector("#mobile-menu");
   const menuLinks = mobileMenu ? mobileMenu.querySelectorAll("a") : [];
@@ -6,59 +14,76 @@
   const peopleInput = document.querySelector("#people");
   const peopleRange = document.querySelector("#people-range");
   const peopleError = document.querySelector("#people-error");
+  const peopleStepButtons = document.querySelectorAll("[data-people-step]");
   const settingInput = document.querySelector("#setting");
-  const durationRange = document.querySelector("#duration-range");
-  const durationOutput = document.querySelector("#duration-output");
   const durationInput = document.querySelector("#duration");
   const coolingInput = document.querySelector("#cooling");
-  const glassesInput = document.querySelector("#glasses");
   const beveragesInput = document.querySelector("#beverages");
   const locationInput = document.querySelector("#location");
   const formatInput = document.querySelector("#format");
   const resultKg = document.querySelector("#result-kg");
+  const resultSummary = document.querySelector("#result-summary");
   const breakdownElements = {
-    service: { value: document.querySelector("#breakdown-service"), bar: document.querySelector("#breakdown-service-bar") },
-    cooling: { value: document.querySelector("#breakdown-cooling"), bar: document.querySelector("#breakdown-cooling-bar") },
-    climate: { value: document.querySelector("#breakdown-climate"), bar: document.querySelector("#breakdown-climate-bar") },
-    safety: { value: document.querySelector("#breakdown-safety"), bar: document.querySelector("#breakdown-safety-bar") },
+    service: document.querySelector("#breakdown-service"),
+    cooling: document.querySelector("#breakdown-cooling"),
+    climate: document.querySelector("#breakdown-climate"),
+    safety: document.querySelector("#breakdown-safety"),
   };
   const packageLines = document.querySelector("#package-lines");
+  const packageTitle = document.querySelector("#package-title");
   const packageCoverage = document.querySelector("#package-coverage");
   const packagePrice = document.querySelector("#package-price");
-  const packageSavings = document.querySelector("#package-savings");
-  const packageOptions = document.querySelectorAll("[data-format-choice]");
   const quoteLink = document.querySelector("#quote-link");
-  const cartButton = document.querySelector("#cart-button");
-  const copyLinkButton = document.querySelector("#copy-link");
   const formStatus = document.querySelector("#form-status");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const beverageKgPerPerson = { sodas: 0.35, beer: 0.56, liquor: 0.45, cocktails: 0.7, mixed: 0.5 };
-  const packageAdjustments = {};
-  const formatData = {
-    bag: { size: 2.5, unitPrice: 4400, display: "Bolsas de 2,5 kg", label: "Bolsa 2,5 kg", singular: "bolsa de 2,5 kg", plural: "bolsas de 2,5 kg" },
-    bulk: { size: 25, unitPrice: 25000, display: "Bultos de 25 kg", label: "Bulto 25 kg", singular: "bulto de 25 kg", plural: "bultos de 25 kg" },
-    block: { size: 60, unitPrice: 35000, display: "Bloques de 60 kg", label: "Bloque entero (60 kg)", singular: "bloque de 60 kg", plural: "bloques de 60 kg" },
+  const settingRate = {
+    home: 0.32,
+    event: 0.5,
+    business: 0.4,
   };
+
+  const beverageRate = {
+    sodas: 0.9,
+    beer: 1.1,
+    cocktails: 1.2,
+    mixed: 1,
+  };
+
+  const formatData = {
+    bag1: { weight: 1, price: 2500, category: "Bolsa", label: "Bolsa de 1 kg", shortLabel: "Bolsa 1 kg", singular: "bolsa de 1 kg", plural: "bolsas de 1 kg", detail: "Presentación individual" },
+    bag25: { weight: 2.5, price: 5000, category: "Bolsa", label: "Bolsa de 2,5 kg", shortLabel: "Bolsa 2,5 kg", singular: "bolsa de 2,5 kg", plural: "bolsas de 2,5 kg", detail: "Presentación individual" },
+    bag4: { weight: 4, price: 7000, category: "Bolsa", label: "Bolsa de 4 kg", shortLabel: "Bolsa 4 kg", singular: "bolsa de 4 kg", plural: "bolsas de 4 kg", detail: "Presentación individual" },
+    paca1: { weight: 10, price: 22000, category: "Paca", label: "Paca de 10 bolsas de 1 kg", shortLabel: "Paca 10 x 1 kg", singular: "paca de 10 bolsas de 1 kg", plural: "pacas de 10 bolsas de 1 kg", detail: "10 bolsas de 1 kg" },
+    paca25: { weight: 12.5, price: 22000, category: "Paca", label: "Paca de 5 bolsas de 2,5 kg", shortLabel: "Paca 5 x 2,5 kg", singular: "paca de 5 bolsas de 2,5 kg", plural: "pacas de 5 bolsas de 2,5 kg", detail: "5 bolsas de 2,5 kg" },
+    bulk10: { weight: 10, price: 18000, category: "Bulto", label: "Bulto de 10 kg", shortLabel: "Bulto 10 kg", singular: "bulto de 10 kg", plural: "bultos de 10 kg", detail: "Presentación individual" },
+    bulk30: { weight: 30, price: 45000, category: "Bulto", label: "Bulto de 30 kg", shortLabel: "Bulto 30 kg", singular: "bulto de 30 kg", plural: "bultos de 30 kg", detail: "Presentación individual" },
+    block15: { weight: 15, price: 15000, category: "Bloque cuarto", label: "Bloque cuarto de 15 kg", shortLabel: "Bloque cuarto 15 kg", singular: "bloque cuarto de 15 kg", plural: "bloques cuarto de 15 kg", detail: "Presentación individual" },
+    block30: { weight: 30, price: 28000, category: "Bloque medio", label: "Bloque medio de 30 kg", shortLabel: "Bloque medio 30 kg", singular: "bloque medio de 30 kg", plural: "bloques medio de 30 kg", detail: "Presentación individual" },
+    block60: { weight: 60, price: 50000, category: "Bloque completo", label: "Bloque completo de 60 kg", shortLabel: "Bloque completo 60 kg", singular: "bloque completo de 60 kg", plural: "bloques completos de 60 kg", detail: "Presentación individual" },
+  };
+
+  const recommendationBands = [
+    { max: 1, key: "bag1" },
+    { max: 2.5, key: "bag25" },
+    { max: 4, key: "bag4" },
+    { max: 10, key: "bulk10" },
+    { max: 12.5, key: "paca25" },
+    { max: 15, key: "block15" },
+    { max: 30, key: "bulk30" },
+    { max: 60, key: "block60" },
+  ];
+
+  const packageAdjustments = {};
   const currencyFormatter = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
 
-  function clampPeople(value) {
-    const numeric = Number(value);
-    if (!Number.isFinite(numeric)) return null;
-    return Math.round(numeric);
+  function formatCurrency(value) {
+    return currencyFormatter.format(Math.round(value)).replace(/\s/g, "");
   }
 
-  function setPeople(value) {
-    const people = clampPeople(value);
-    if (people === null || people < 1 || people > 10000) return false;
-    peopleInput.value = people;
-    if (peopleRange) {
-      peopleRange.value = Math.min(Number(peopleRange.max), people);
-      updateRangeProgress(peopleRange);
-    }
-    peopleError.textContent = "";
-    peopleInput.removeAttribute("aria-invalid");
-    return true;
+  function formatKg(value) {
+    const rounded = Math.round(value * 10) / 10;
+    return Number.isInteger(rounded) ? String(rounded) : String(rounded).replace(".", ",");
   }
 
   function updateRangeProgress(range) {
@@ -70,39 +95,34 @@
     range.style.setProperty("--range-progress", `${Math.max(0, Math.min(100, progress))}%`);
   }
 
-  function syncDuration(value) {
-    const duration = Math.min(8, Math.max(2, Number(value) || 5));
-    durationRange.value = duration;
-    durationOutput.textContent = `${duration} h`;
-    durationInput.value = duration <= 2 ? "2" : duration <= 4 ? "4" : duration <= 6 ? "6" : "8";
-    updateRangeProgress(durationRange);
+  function setPeople(value) {
+    const people = Math.round(Number(value));
+    if (!Number.isFinite(people)) return false;
+    peopleInput.value = people;
+    peopleRange.value = Math.min(Number(peopleRange.max), Math.max(Number(peopleRange.min), people));
+    updateRangeProgress(peopleRange);
+    peopleError.textContent = "";
+    peopleInput.removeAttribute("aria-invalid");
+    return true;
   }
 
-  function formatCurrency(value) {
-    return currencyFormatter.format(Math.round(value)).replace(/\s/g, "");
-  }
-
-  function formatKg(value) {
-    return Number.isInteger(value) ? String(value) : String(value).replace(".", ",");
-  }
-
-  function getPackageLines(totalKg, selectedFormat) {
-    let lines;
-    if (selectedFormat === "recommend") {
-      if (totalKg <= 10) lines = [{ key: "bag", units: Math.ceil(totalKg / formatData.bag.size) }];
-      else if (totalKg <= 60) lines = [{ key: "bulk", units: Math.ceil(totalKg / formatData.bulk.size) }];
-      else {
-        const bulkUnits = Math.max(0, Math.ceil((totalKg - formatData.block.size) / formatData.bulk.size));
-        lines = [
-        ...(bulkUnits ? [{ key: "bulk", units: bulkUnits }] : []),
-        { key: "block", units: 1 },
-        ];
+  function readPeople({ showError = true } = {}) {
+    const rawValue = peopleInput.value.trim();
+    const people = rawValue === "" ? null : Number(rawValue);
+    const valid = Number.isInteger(people) && people >= PEOPLE_MIN && people <= PEOPLE_MAX;
+    if (!valid) {
+      if (showError) {
+        peopleError.textContent = "Escribe una cantidad entre 1 y 10.000 personas.";
+        peopleInput.setAttribute("aria-invalid", "true");
       }
-    } else {
-      lines = [{ key: selectedFormat, units: Math.ceil(totalKg / formatData[selectedFormat].size) }];
+      return null;
     }
-    const adjustments = packageAdjustments[selectedFormat] || {};
-    return lines.map((line) => ({ ...line, units: Math.max(1, line.units + (adjustments[line.key] || 0)) }));
+    setPeople(people);
+    return people;
+  }
+
+  function selectedLabel(groupName) {
+    return document.querySelector(`[data-choice-group="${groupName}"] .is-selected`)?.dataset.label || "No definido";
   }
 
   function selectChoice(button) {
@@ -113,100 +133,153 @@
       choice.classList.toggle("is-selected", selected);
       choice.setAttribute("aria-pressed", String(selected));
     });
+
     const choiceGroup = group.dataset.choiceGroup;
     if (choiceGroup === "occasion") settingInput.value = button.dataset.setting;
     if (choiceGroup === "beverages") beveragesInput.value = button.dataset.value;
     if (choiceGroup === "location") locationInput.value = button.dataset.value;
-    if (choiceGroup === "cooling") coolingInput.checked = button.dataset.value === "yes";
-    if (choiceGroup === "glasses") glassesInput.checked = button.dataset.value === "yes";
+    if (choiceGroup === "cooling") coolingInput.value = button.dataset.value;
   }
 
-  function selectedLabel(groupName) {
-    return document.querySelector(`[data-choice-group="${groupName}"] .is-selected`)?.dataset.label || "No definido";
-  }
-
-  function validatePeople() {
-    const people = clampPeople(peopleInput.value);
-    const valid = people !== null && people >= 1 && people <= 10000;
-    if (!valid) {
-      peopleError.textContent = "Escribe una cantidad entre 1 y 10.000 personas.";
-      peopleInput.setAttribute("aria-invalid", "true");
-      return null;
+  function getRecommendedLines(totalKg) {
+    if (totalKg <= 60) {
+      const band = recommendationBands.find((candidate) => totalKg <= candidate.max);
+      return [{ key: band?.key || "block60", units: 1 }];
     }
-    setPeople(people);
-    return people;
+
+    const lines = [];
+    let remaining = totalKg;
+    const fullBlocks = Math.floor(remaining / formatData.block60.weight);
+    if (fullBlocks > 0) {
+      lines.push({ key: "block60", units: fullBlocks });
+      remaining = Math.round((remaining - fullBlocks * formatData.block60.weight) * 10) / 10;
+    }
+    if (remaining > 0) {
+      const band = recommendationBands.find((candidate) => remaining <= candidate.max);
+      lines.push({ key: band?.key || "block60", units: 1 });
+    }
+    return lines;
+  }
+
+  function getPackageLines(totalKg, selectedFormat) {
+    const baseLines = selectedFormat === "recommend"
+      ? getRecommendedLines(totalKg)
+      : [{ key: selectedFormat, units: Math.max(1, Math.ceil(totalKg / formatData[selectedFormat].weight)) }];
+    const adjustments = packageAdjustments[selectedFormat] || {};
+    return baseLines.map((line) => ({
+      ...line,
+      units: Math.max(1, line.units + (adjustments[line.key] || 0)),
+    }));
   }
 
   function getEstimate() {
-    const people = validatePeople();
+    const people = readPeople();
     if (people === null) return null;
-    const hours = Number(durationRange.value) || 5;
-    const durationFactor = hours <= 4 ? 1 : 1 + ((hours - 4) * 0.08);
-    const service = people * (beverageKgPerPerson[beveragesInput.value] || beverageKgPerPerson.mixed) * durationFactor;
-    const cooling = coolingInput.checked ? people * 0.4 : 0;
-    const climateRate = locationInput.value === "sun" ? 0.3 : locationInput.value === "exterior" ? 0.15 : 0;
+
+    const setting = settingInput.value || "home";
+    const hours = Number(durationInput.value) || 4;
+    const durationFactor = hours <= 2 ? 0.82 : hours <= 4 ? 1 : hours <= 6 ? 1.15 : 1.3;
+    const service = people * (settingRate[setting] || settingRate.home) * (beverageRate[beveragesInput.value] || 1) * durationFactor;
+    const cooling = coolingInput.value === "yes" ? people * 0.4 : 0;
+    const climateRate = locationInput.value === "sun" ? 0.2 : locationInput.value === "exterior" ? 0.1 : 0;
     const climate = (service + cooling) * climateRate;
     const safety = (service + cooling + climate) * 0.15;
     const estimatedKg = service + cooling + climate + safety;
-    const totalKg = Math.max(2.5, Math.ceil(estimatedKg / 5) * 5);
+    const totalKg = Math.max(1, Math.ceil(estimatedKg / 2.5) * 2.5);
     const selectedFormat = formatInput.value || "recommend";
     const lines = getPackageLines(totalKg, selectedFormat);
-    const coveredKg = lines.reduce((total, line) => total + line.units * formatData[line.key].size, 0);
-    const packagePrice = lines.reduce((total, line) => total + line.units * formatData[line.key].unitPrice, 0);
+    const coveredKg = lines.reduce((total, line) => total + line.units * formatData[line.key].weight, 0);
+    const totalPrice = lines.reduce((total, line) => total + line.units * formatData[line.key].price, 0);
+
     return {
       people,
+      setting,
       hours,
       estimatedKg,
       totalKg,
       breakdown: { service, cooling, climate, safety },
       lines,
       coveredKg,
-      packagePrice,
+      totalPrice,
       selectedFormat,
     };
   }
 
+  function formatLineLabel(line) {
+    const pack = formatData[line.key];
+    return `${line.units} ${line.units === 1 ? pack.singular : pack.plural}`;
+  }
+
   function renderBreakdown(breakdown) {
-    const maxValue = Math.max(1, breakdown.service);
-    Object.entries(breakdown).forEach(([key, rawValue]) => {
-      const element = breakdownElements[key];
-      if (!element) return;
-      element.value.textContent = String(Math.round(rawValue));
-      element.bar.style.width = `${Math.min(100, (rawValue / maxValue) * 100)}%`;
+    Object.entries(breakdown).forEach(([key, value]) => {
+      if (breakdownElements[key]) breakdownElements[key].textContent = `${formatKg(value)} kg`;
     });
   }
 
   function renderPackage(estimate) {
     packageLines.innerHTML = estimate.lines.map((line) => {
       const pack = formatData[line.key];
-      const lineTotal = line.units * pack.unitPrice;
-      return `<div class="package-line"><strong>${pack.label}</strong><span>${formatCurrency(lineTotal)}</span><button type="button" class="quantity-button" data-line-key="${line.key}" data-step="-1" aria-label="Restar una unidad de ${pack.label}">−</button><output>${line.units}</output><button type="button" class="quantity-button" data-line-key="${line.key}" data-step="1" aria-label="Sumar una unidad de ${pack.label}">+</button></div>`;
+      const lineTotal = line.units * pack.price;
+      return `<div class="package-line"><span class="package-line-name"><strong>${pack.shortLabel}</strong><small>${pack.detail}</small></span><span class="package-line-price">${formatCurrency(lineTotal)}</span><button type="button" class="quantity-button" data-line-key="${line.key}" data-step="-1" aria-label="Restar una unidad de ${pack.label}">−</button><output>${line.units}</output><button type="button" class="quantity-button" data-line-key="${line.key}" data-step="1" aria-label="Sumar una unidad de ${pack.label}">+</button></div>`;
     }).join("");
-    packageCoverage.textContent = `${formatKg(estimate.coveredKg)} kg cubiertos de ${formatKg(estimate.totalKg)} recomendados${estimate.lines.some((line) => line.key === "block") ? " · el bloque dura mucho más" : ""}`;
-    packagePrice.textContent = formatCurrency(estimate.packagePrice);
-    const allBagsPrice = Math.ceil(estimate.totalKg / formatData.bag.size) * formatData.bag.unitPrice;
-    const savings = Math.max(0, allBagsPrice - estimate.packagePrice);
-    packageSavings.textContent = `Ahorros ${formatCurrency(Math.round(savings / 1000) * 1000)} vs. la opción más cara`;
+
+    packageTitle.textContent = estimate.lines.length === 1 ? formatLineLabel(estimate.lines[0]) : "Combinación de presentaciones";
+    packageCoverage.textContent = `${formatKg(estimate.coveredKg)} kg en tu selección. Puedes ajustar las unidades antes de solicitar la cotización.`;
+    packagePrice.textContent = formatCurrency(estimate.totalPrice);
   }
 
-  function syncFormatChoice(value) {
-    packageOptions.forEach((option) => {
-      const selected = option.dataset.formatChoice === value;
-      option.classList.toggle("is-selected", selected);
-      option.setAttribute("aria-pressed", String(selected));
+  function resetResult() {
+    resultKg.textContent = "--";
+    resultSummary.textContent = "Revisa la cantidad de personas para actualizar la estimación.";
+    Object.values(breakdownElements).forEach((element) => { if (element) element.textContent = "--"; });
+    packageTitle.textContent = "Completa la cantidad de personas";
+    packageLines.innerHTML = "";
+    packageCoverage.textContent = "";
+    packagePrice.textContent = "--";
+  }
+
+  function buildWhatsAppUrl(message) {
+    return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+  }
+
+  function buildGenericMessage(context) {
+    if (context === "business") {
+      return "Hola, quiero solicitar atención empresarial de Hielos Claritas. Me interesa revisar presentaciones, cantidades, frecuencia y entrega.";
+    }
+    return "Hola, quiero cotizar un pedido de Hielos Claritas. ¿Me pueden ayudar con presentaciones, disponibilidad y entrega?";
+  }
+
+  function buildEstimateMessage(estimate) {
+    const packageDescription = estimate.lines.map(formatLineLabel).join(" y ");
+    return `Hola, quiero cotizar un pedido de Hielos Claritas. Seleccioné ${packageDescription}, con ${formatKg(estimate.coveredKg)} kg en total. La calculadora estima ${formatKg(estimate.totalKg)} kg para ${estimate.people} personas. Tipo de pedido: ${selectedLabel("occasion")}. Duración: ${estimate.hours} horas. Bebidas: ${selectedLabel("beverages")}. Lugar: ${selectedLabel("location")}. Enfriar botellas: ${coolingInput.value === "yes" ? "Sí" : "No"}.`;
+  }
+
+  function updateGenericWhatsAppLinks() {
+    document.querySelectorAll("[data-whatsapp-quote]").forEach((link) => {
+      if (link === quoteLink) return;
+      link.href = buildWhatsAppUrl(buildGenericMessage(link.dataset.whatsappContext));
     });
   }
 
   function updateResult(showStatus = false) {
     const estimate = getEstimate();
-    if (!estimate) return;
+    if (!estimate) {
+      resetResult();
+      return;
+    }
+
     resultKg.textContent = formatKg(estimate.totalKg);
+    resultSummary.textContent = `${formatLineLabel(estimate.lines[0])}. Puedes ajustar las unidades antes de solicitar la cotización.`;
     renderBreakdown(estimate.breakdown);
     renderPackage(estimate);
-    const packageDescription = estimate.lines.map((line) => `${line.units} ${formatData[line.key].label}`).join(" + ");
-    const message = `Hola, quiero cotizar ${packageDescription} (${estimate.coveredKg} kg cubiertos) para ${estimate.people} personas. Necesito aprox. ${estimate.totalKg} kg. Uso: ${selectedLabel("occasion")}. Duración: ${estimate.hours} h. Bebidas: ${selectedLabel("beverages")}. Lugar: ${selectedLabel("location")}. Enfriar botellas: ${coolingInput.checked ? "Sí" : "No"}. Hielo para vasos: ${glassesInput.checked ? "Sí" : "No"}.`;
-    quoteLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
-    if (showStatus) formStatus.textContent = "Estimación actualizada. Confirma los detalles con Monacua.";
+    quoteLink.href = buildWhatsAppUrl(buildEstimateMessage(estimate));
+    if (showStatus) formStatus.textContent = "Estimación actualizada. Confirma los detalles con Hielos Claritas.";
+  }
+
+  function closeMobileMenu() {
+    menuButton?.setAttribute("aria-expanded", "false");
+    menuButton?.setAttribute("aria-label", "Abrir menú");
+    mobileMenu?.classList.remove("is-open");
   }
 
   menuButton?.addEventListener("click", () => {
@@ -215,10 +288,7 @@
     menuButton.setAttribute("aria-label", open ? "Abrir menú" : "Cerrar menú");
     mobileMenu?.classList.toggle("is-open", !open);
   });
-  menuLinks.forEach((link) => link.addEventListener("click", () => {
-    menuButton?.setAttribute("aria-expanded", "false");
-    mobileMenu?.classList.remove("is-open");
-  }));
+  menuLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
 
   document.querySelectorAll("[data-choice]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -226,13 +296,31 @@
       updateResult(true);
     });
   });
-  packageOptions.forEach((button) => {
+
+  peopleStepButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      formatInput.value = button.dataset.formatChoice;
-      syncFormatChoice(formatInput.value);
+      const current = readPeople({ showError: false }) || PEOPLE_MIN;
+      const next = Math.min(PEOPLE_MAX, Math.max(PEOPLE_MIN, current + Number(button.dataset.peopleStep)));
+      setPeople(next);
       updateResult(true);
     });
   });
+
+  peopleRange?.addEventListener("input", () => {
+    setPeople(peopleRange.value);
+    updateResult();
+  });
+
+  peopleInput?.addEventListener("input", () => {
+    const people = readPeople({ showError: false });
+    if (people !== null) updateResult();
+  });
+  peopleInput?.addEventListener("blur", () => {
+    if (readPeople() !== null) updateResult();
+  });
+
+  [durationInput, formatInput].forEach((control) => control?.addEventListener("change", () => updateResult(true)));
+
   packageLines?.addEventListener("click", (event) => {
     const button = event.target.closest(".quantity-button");
     if (!button) return;
@@ -242,43 +330,18 @@
     packageAdjustments[format][key] = (packageAdjustments[format][key] || 0) + Number(button.dataset.step);
     updateResult(true);
   });
-  peopleRange?.addEventListener("input", () => {
-    setPeople(peopleRange.value);
-    updateResult();
-  });
-  peopleInput?.addEventListener("input", () => {
-    const people = clampPeople(peopleInput.value);
-    if (people !== null && people >= 1 && people <= 10000) {
-      setPeople(people);
-      updateResult();
-    }
-  });
-  durationRange?.addEventListener("input", () => {
-    syncDuration(durationRange.value);
-    updateResult();
-  });
-  [settingInput, durationInput, coolingInput].forEach((control) => control?.addEventListener("change", () => updateResult(true)));
-  formatInput?.addEventListener("change", () => {
-    syncFormatChoice(formatInput.value);
-    updateResult(true);
-  });
-  copyLinkButton?.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(quoteLink.href);
-      formStatus.textContent = "Enlace de cotización copiado.";
-    } catch {
-      formStatus.textContent = "No se pudo copiar el enlace. Usa el botón de WhatsApp para continuar.";
-    }
-  });
-  cartButton?.addEventListener("click", () => {
-    cartButton.textContent = "Configuración guardada ✓";
-    cartButton.classList.add("is-confirmed");
-    formStatus.textContent = "La configuración quedó lista para cotizar.";
-  });
+
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (readPeople() === null) {
+      formStatus.textContent = "Revisa la cantidad de personas para continuar.";
+      peopleInput.focus();
+      return;
+    }
     updateResult(true);
   });
+
+  updateGenericWhatsAppLinks();
 
   if (!reduceMotion && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, instance) => {
@@ -287,14 +350,13 @@
         entry.target.classList.add("is-visible");
         instance.unobserve(entry.target);
       });
-    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
     document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
   } else {
     document.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
   }
 
   setPeople(peopleInput.value);
-  syncDuration(durationRange.value);
-  syncFormatChoice(formatInput.value);
+  updateRangeProgress(peopleRange);
   updateResult();
 })();
