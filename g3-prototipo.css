@@ -70,7 +70,7 @@ img { display: block; max-width: 100%; }
 .hero-products { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
 .hero-bag { position: absolute; height: auto; object-fit: contain; transform-origin: center bottom; }
 .hero-bag-small { right: clamp(24%, 27vw, 34%); bottom: clamp(12%, 14vw, 18%); width: clamp(250px, 27vw, 390px); filter: drop-shadow(0 26px 22px rgba(1, 12, 28, 0.3)); transform: rotate(-1.4deg); }
-.hero-bag-large { right: clamp(3%, 5.2vw, 8%); bottom: clamp(6%, 7vw, 11%); width: clamp(320px, 30vw, 480px); filter: drop-shadow(0 30px 25px rgba(1, 12, 28, 0.34)); }
+.hero-bag-large { right: clamp(1%, 3.8vw, 6%); bottom: clamp(6%, 7vw, 11%); width: clamp(320px, 30vw, 480px); filter: drop-shadow(0 30px 25px rgba(1, 12, 28, 0.34)); }
 .hero-copy { position: absolute; z-index: 3; top: clamp(154px, 19.5%, 210px); left: clamp(32px, 5.7vw, 96px); width: min(53vw, 760px); }
 .hero-wordmark { width: clamp(250px, 26vw, 410px); height: auto; margin-bottom: clamp(13px, 1vw, 20px); filter: brightness(0) invert(1); }
 .hero-copy h1 { max-width: 100%; margin: 0; color: var(--white); font-size: clamp(42px, 5vw, 76px); font-weight: 800; letter-spacing: -0.07em; line-height: 0.94; text-wrap: balance; }
@@ -90,17 +90,19 @@ img { display: block; max-width: 100%; }
 .section-intro h2, .business-copy h2, .final-cta h2 { margin: 0 0 16px; color: var(--brand-deep); font-size: clamp(38px, 4.4vw, 60px); letter-spacing: -0.065em; line-height: 1.02; }
 .section-intro > p:last-child, .business-copy > p:not(.eyebrow), .final-cta p:last-child { max-width: 590px; margin-bottom: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
 
-.product-lineup { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4.6vw, 68px); align-items: end; }
-.product-item { min-width: 0; }
-.product-figure { display: grid; min-width: 0; height: clamp(410px, 42vw, 560px); margin: 0; overflow: hidden; place-items: end center; }
+.product-lineup { --product-figure-height: clamp(410px, 42vw, 560px); position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4.6vw, 68px); align-items: stretch; }
+.product-lineup::before { position: absolute; z-index: 0; inset: 0 0 auto; height: var(--product-figure-height); background: linear-gradient(180deg, rgba(2, 13, 29, 0.34) 0%, rgba(2, 13, 29, 0.12) 52%, rgba(2, 13, 29, 0.42) 100%), url("img/hero-monacua-fondo-v2.png") center 58% / cover; content: ""; pointer-events: none; }
+.product-lineup::after { position: absolute; z-index: 2; top: var(--product-figure-height); right: 0; left: 0; border-top: 1px solid rgba(255, 255, 255, 0.78); content: ""; pointer-events: none; }
+.product-item { position: relative; z-index: 1; display: flex; min-width: 0; flex-direction: column; }
+.product-figure { display: grid; min-width: 0; height: var(--product-figure-height); margin: 0; overflow: hidden; place-items: end center; }
 .product-figure img { width: 100%; min-width: 0; min-height: 0; max-width: 100%; max-height: 100%; height: calc(100% - 22px); object-fit: contain; object-position: center bottom; }
 .product-item-1kg .product-figure img { width: 78%; }
 .product-item-2-5kg .product-figure img { width: 88%; }
 .product-item-4kg .product-figure img { width: 100%; }
-.product-copy { min-height: 286px; padding-top: 25px; border-top: 1px solid var(--border); }
+.product-copy { min-height: 286px; flex: 1 1 auto; padding-top: 25px; border-top: 0; background: var(--surface); }
 .product-item-1kg .product-copy { padding-inline: 17px 20px; border-color: var(--brand-primary); }
 .product-item-2-5kg .product-copy { padding-inline: 12px 20px; border-color: var(--brand-primary); }
-.product-item-4kg .product-copy { padding-inline: 20px; border-top: 1px solid var(--brand-primary); background: transparent; }
+.product-item-4kg .product-copy { padding-inline: 20px; border-top: 0; background: transparent; }
 .product-copy .product-label { margin: 0 0 11px; color: var(--brand-primary); font-size: 10px; font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }
 .product-copy h3 { max-width: 17ch; margin: 0 0 13px; color: var(--brand-deep); font-size: clamp(23px, 2.2vw, 32px); letter-spacing: -0.04em; line-height: 1.04; }
 .product-copy > p:not(.product-label):not(.product-ideal):not(.product-price) { max-width: 34ch; margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.55; }
@@ -267,7 +269,11 @@ body.motion-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
   .mobile-menu.is-open { display: grid; }
   .mobile-menu a { padding: 12px 0; color: var(--muted); font-size: 14px; font-weight: 700; }
   .mobile-menu .button { width: 100%; margin-top: 8px; color: var(--white); }
-  .product-lineup { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-lineup { isolation: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-lineup::before, .product-lineup::after { display: none; }
+  .product-figure { background: linear-gradient(180deg, rgba(2, 13, 29, 0.34) 0%, rgba(2, 13, 29, 0.12) 52%, rgba(2, 13, 29, 0.42) 100%), url("img/hero-monacua-fondo-v2.png") center 58% / cover; }
+  .product-copy { border-top: 1px solid var(--brand-primary); }
+  .product-item-4kg .product-copy { border-top: 1px solid var(--brand-primary); }
   .product-item-4kg { grid-column: 1 / -1; width: min(100%, 430px); justify-self: center; }
   .product-item-4kg .product-copy { padding-inline: 24px; }
   .volume-showcase { grid-template-columns: minmax(0, 1fr) minmax(240px, 0.72fr); }
@@ -292,9 +298,8 @@ body.motion-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
   .proof-band span { font-size: 11px; }
   .section-intro { margin-bottom: 36px; }
   .section-intro h2, .business-copy h2, .final-cta h2 { font-size: 42px; }
-  .product-lineup { grid-template-columns: 1fr; gap: 68px; }
+  .product-lineup { --product-figure-height: clamp(360px, 88vw, 440px); grid-template-columns: 1fr; gap: 68px; }
   .product-item-4kg { grid-column: auto; width: 100%; }
-  .product-figure { height: clamp(360px, 88vw, 440px); }
   .product-item-1kg .product-figure img { width: 76%; }
   .product-item-2-5kg .product-figure img { width: 86%; }
   .product-copy { min-height: 0; }
@@ -343,6 +348,14 @@ body.motion-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
   .hero-copy h1 { font-size: clamp(36px, 9.8vw, 52px); line-height: 0.94; }
   .hero-reference-actions { bottom: 28px; left: 24px; }
   .hero-reference-button { min-height: 46px; padding-inline: 17px; font-size: 12px; }
+}
+
+/* Keep the layered hero composed in short mobile viewports (including browser previews). */
+@media (max-width: 760px) and (max-height: 620px) {
+  .hero-bag-small { right: 20%; bottom: 8%; width: min(35vw, 180px); }
+  .hero-bag-large { right: -20%; bottom: 2%; width: min(58vw, 300px); }
+  .hero-copy { top: clamp(38px, 9vw, 62px); left: 24px; width: min(52%, 310px); }
+  .hero-copy h1 { font-size: clamp(34px, 8vw, 48px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
